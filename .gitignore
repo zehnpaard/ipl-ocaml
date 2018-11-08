@@ -1,0 +1,8 @@
+*/*.cmo
+*/*.cmi
+*/*.mli
+*/*.mll
+*/*.mly
+ch02/*
+!ch02/*.cf
+!ch02/*.ml

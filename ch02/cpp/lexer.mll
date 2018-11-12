@@ -32,5 +32,6 @@ rule read = parse
   | '}' { RBRACE }
   | ',' { COMMA }
   | ';' { SEMICOLON }
+  | '=' { EQUAL }
   | _ { raise (SyntaxError ("Unexpected char: " ^ Lexing.lexeme lexbuf)) }
   | eof { EOF }

@@ -6,6 +6,7 @@
 %token RPAREN
 %token LBRACE
 %token RBRACE
+%token EQUAL
 %token TINT
 %token EOF
 
@@ -33,6 +34,9 @@ arg:
 
 stm:
   | e = exp; SEMICOLON { `SExp e }
+  | t = ty; x = ID; SEMICOLON { `SDecl (t, x) }
+  | t = ty; xs = separated_list (COMMA, ID); SEMICOLON { `SDecls (t, xs) }
+  | t = ty; x = ID; EQUAL; e = exp; SEMICOLON { `SInit (t, x, e) }
   ;
 
 exp:

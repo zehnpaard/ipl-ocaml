@@ -9,6 +9,9 @@ type ty = [
 
 type stm = [
   | `SExp of exp
+  | `SDecl of ty * string
+  | `SDecls of ty * string list
+  | `SInit of ty * string * exp
 ]
 
 type def = [

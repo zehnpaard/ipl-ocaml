@@ -6,7 +6,7 @@ exception SyntaxError of string
 }
 
 let digit = ['0'-'9']
-let int = '-'? digit+
+let int = digit+
 
 rule read = parse
   | int { INT (int_of_string (Lexing.lexeme lexbuf)) }

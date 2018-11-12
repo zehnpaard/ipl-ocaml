@@ -14,5 +14,7 @@ rule read = parse
   | '-' { SUB }
   | '*' { MUL }
   | '/' { DIV }
+  | '(' { LPAREN }
+  | ')' { RPAREN }
   | _  { raise (SyntaxError ("Unexpected char: " ^ Lexing.lexeme lexbuf)) }
   | eof { EOF }

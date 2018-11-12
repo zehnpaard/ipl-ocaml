@@ -5,6 +5,9 @@
 %token DIV
 %token EOF
 
+%left ADD SUB
+%left MUL DIV
+
 %start <Calc.value> prog
 
 %%

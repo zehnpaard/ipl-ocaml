@@ -11,5 +11,5 @@ type stm = [
 ]
 
 type def = [
-  | `DFun of ty * exp * (ty * exp) list * stm list
+  | `DFun of ty * string * (ty * string) list * stm list
 ]

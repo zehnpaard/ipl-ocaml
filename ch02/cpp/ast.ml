@@ -12,6 +12,10 @@ type stm = [
   | `SDecl of ty * string
   | `SDecls of ty * string list
   | `SInit of ty * string * exp
+  | `SReturn of exp
+  | `SWhile of exp * stm
+  | `SBlock of stm list
+  | `SIfElse of exp * stm * stm
 ]
 
 type def = [

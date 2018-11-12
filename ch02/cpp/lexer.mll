@@ -25,6 +25,10 @@ rule read = parse
   | newline { next_line lexbuf; read lexbuf }
   | int { INT (int_of_string (Lexing.lexeme lexbuf)) }
   | "int" { TINT }
+  | "return" { RETURN }
+  | "while" { WHILE }
+  | "if" { IF }
+  | "else" { ELSE }
   | id { ID (Lexing.lexeme lexbuf) }
   | '(' { LPAREN }
   | ')' { RPAREN }

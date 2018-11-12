@@ -3,6 +3,8 @@
 %token SUB
 %token MUL
 %token DIV
+%token LPAREN
+%token RPAREN
 %token EOF
 
 %left ADD SUB
@@ -21,3 +23,4 @@ value:
   | v1 = value; SUB; v2 = value { `ESub (v1, v2) }
   | v1 = value; MUL; v2 = value { `EMul (v1, v2) }
   | v1 = value; DIV; v2 = value { `EDiv (v1, v2) }
+  | LPAREN; v = value; RPAREN { v }

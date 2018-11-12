@@ -1,5 +1,6 @@
 type exp = [
   | `EId of string
+  | `EInt of int
 ]
 
 type ty = [

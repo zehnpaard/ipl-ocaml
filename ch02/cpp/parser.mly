@@ -37,4 +37,5 @@ stm:
 
 exp:
   | x = ID; { `EId x }
+  | i = INT; { `EInt i }
   ;

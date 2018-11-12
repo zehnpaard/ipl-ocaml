@@ -1,12 +1,13 @@
 %token <int> INT
 %token ADD
+%token EOF
 
 %start <Calc.value> prog
 
 %%
 
 prog:
-  | v = value { v };
+  | v = value; EOF { v };
 
 value:
   | i = INT { `EInt i }

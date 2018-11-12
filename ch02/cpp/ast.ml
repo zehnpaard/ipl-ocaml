@@ -5,6 +5,12 @@ type exp = [
   | `ETrue
   | `EFalse
   | `EString of string
+  | `ECall of string * exp list
+  | `EPIncr of exp
+  | `EPDecr of exp
+  | `EIncr of exp
+  | `EDecr of exp
+  | `ENeg of exp
 ]
 
 type ty = [

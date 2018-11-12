@@ -52,6 +52,9 @@ rule read = parse
   | ',' { COMMA }
   | ';' { SEMICOLON }
   | '=' { EQUAL }
+  | "++" { INCREMENT }
+  | "--" { DECREMENT }
+  | "-" { SUB }
   | _ { raise (SyntaxError ("Unexpected char: " ^ Lexing.lexeme lexbuf)) }
   | eof { EOF }
 

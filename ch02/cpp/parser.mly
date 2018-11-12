@@ -15,6 +15,9 @@
 %token WHILE
 %token IF
 %token ELSE
+%token INCREMENT
+%token DECREMENT
+%token SUB
 %token TINT
 %token TDOUBLE
 %token TBOOL
@@ -66,4 +69,10 @@ exp:
   | TRUE { `ETrue }
   | FALSE { `EFalse }
   | s = STRING { `EString s }
+  | s = ID; LPAREN; es = separated_list(COMMA, exp); RPAREN { `ECall (s, es) }
+  | e = exp; INCREMENT { `EPIncr e }
+  | e = exp; DECREMENT { `EPDecr e }
+  | INCREMENT; e = exp { `EIncr e }
+  | DECREMENT; e = exp { `EDecr e }
+  | SUB; e = exp { `ENeg e }
   ;

@@ -11,6 +11,19 @@ type exp = [
   | `EIncr of exp
   | `EDecr of exp
   | `ENeg of exp
+  | `EMul of exp * exp
+  | `EDiv of exp * exp
+  | `EAdd of exp * exp
+  | `ESub of exp * exp
+  | `ELt of exp * exp
+  | `EGt of exp * exp
+  | `ELEq of exp * exp
+  | `EGEq of exp * exp
+  | `EEq of exp * exp
+  | `ENEq of exp * exp
+  | `EAnd of exp * exp
+  | `EOr of exp * exp
+  | `EAss of exp * exp
 ]
 
 type ty = [

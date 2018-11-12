@@ -11,13 +11,24 @@
 %token LBRACE
 %token RBRACE
 %token EQUAL
+%token MUL
+%token DIV
+%token ADD
+%token SUB
+%token LT
+%token GT
+%token LEQ
+%token GEQ
+%token EQ
+%token NEQ
+%token AND
+%token OR
 %token RETURN
 %token WHILE
 %token IF
 %token ELSE
 %token INCREMENT
 %token DECREMENT
-%token SUB
 %token TINT
 %token TDOUBLE
 %token TBOOL
@@ -75,4 +86,17 @@ exp:
   | INCREMENT; e = exp { `EIncr e }
   | DECREMENT; e = exp { `EDecr e }
   | SUB; e = exp { `ENeg e }
+  | e1 = exp; MUL; e2 = exp { `EMul (e1, e2) }
+  | e1 = exp; DIV; e2 = exp { `EDiv (e1, e2) }
+  | e1 = exp; ADD; e2 = exp { `EAdd (e1, e2) }
+  | e1 = exp; SUB; e2 = exp { `ESub (e1, e2) }
+  | e1 = exp; LT; e2 = exp { `ELt (e1, e2) }
+  | e1 = exp; GT; e2 = exp { `EGt (e1, e2) }
+  | e1 = exp; LEQ; e2 = exp { `ELEq (e1, e2) }
+  | e1 = exp; GEQ; e2 = exp { `EGEq (e1, e2) }
+  | e1 = exp; EQ; e2 = exp { `EEq (e1, e2) }
+  | e1 = exp; NEQ; e2 = exp { `ENEq (e1, e2) }
+  | e1 = exp; AND; e2 = exp { `EAnd (e1, e2) }
+  | e1 = exp; OR; e2 = exp { `EOr (e1, e2) }
+  | e1 = exp; EQUAL; e2 = exp { `EAss (e1, e2) }
   ;

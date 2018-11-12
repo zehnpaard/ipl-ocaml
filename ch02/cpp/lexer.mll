@@ -54,7 +54,18 @@ rule read = parse
   | '=' { EQUAL }
   | "++" { INCREMENT }
   | "--" { DECREMENT }
-  | "-" { SUB }
+  | '*' { MUL }
+  | '/' { DIV }
+  | '+' { ADD }
+  | '-' { SUB }
+  | '<' { LT }
+  | '>' { GT }
+  | "<=" { LEQ }
+  | ">=" { GEQ }
+  | "==" { EQ }
+  | "!=" { NEQ }
+  | "&&" { AND }
+  | "||" { OR }
   | _ { raise (SyntaxError ("Unexpected char: " ^ Lexing.lexeme lexbuf)) }
   | eof { EOF }
 

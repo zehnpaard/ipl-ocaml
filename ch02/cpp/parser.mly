@@ -1,5 +1,9 @@
 %token <int> INT
+%token <float> FLOAT
 %token <string> ID
+%token <string> STRING
+%token TRUE
+%token FALSE
 %token COMMA
 %token SEMICOLON
 %token LPAREN
@@ -12,6 +16,10 @@
 %token IF
 %token ELSE
 %token TINT
+%token TDOUBLE
+%token TBOOL
+%token TSTRING
+%token TVOID
 %token EOF
 
 %start <Ast.def list> prog
@@ -30,6 +38,10 @@ def:
 
 ty:
   | TINT { `TInt }
+  | TDOUBLE { `TDouble }
+  | TBOOL { `TBool }
+  | TSTRING { `TString }
+  | TVOID { `TVoid }
   ;
 
 arg:
@@ -48,6 +60,10 @@ stm:
   ;
 
 exp:
-  | x = ID; { `EId x }
-  | i = INT; { `EInt i }
+  | x = ID { `EId x }
+  | i = INT { `EInt i }
+  | d = FLOAT { `EDouble d }
+  | TRUE { `ETrue }
+  | FALSE { `EFalse }
+  | s = STRING { `EString s }
   ;

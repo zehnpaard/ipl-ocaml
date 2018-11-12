@@ -1,10 +1,18 @@
 type exp = [
   | `EId of string
   | `EInt of int
+  | `EDouble of float
+  | `ETrue
+  | `EFalse
+  | `EString of string
 ]
 
 type ty = [
   | `TInt
+  | `TDouble
+  | `TBool
+  | `TString
+  | `TVoid
 ]
 
 type stm = [
